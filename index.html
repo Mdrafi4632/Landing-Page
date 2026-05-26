@@ -234,14 +234,12 @@
     .edu-title {
       transition: color 0.35s ease;
     }
-    @media (min-width: 768px) {
-      .edu-entry:hover .edu-period {
-        color: var(--accent);
-        transform: translateX(6px);
-      }
-      .edu-entry:hover .edu-title {
-        color: var(--accent);
-      }
+    .edu-entry:hover .edu-period {
+      color: var(--accent);
+      transform: translateX(6px);
+    }
+    .edu-entry:hover .edu-title {
+      color: var(--accent);
     }
 
     /* Project modal */
@@ -320,14 +318,12 @@
     .exp-title {
       transition: color 0.35s ease;
     }
-    @media (min-width: 768px) {
-      .exp-entry:hover .exp-period {
-        color: var(--accent);
-        transform: translateX(6px);
-      }
-      .exp-entry:hover .exp-title {
-        color: var(--accent);
-      }
+    .exp-entry:hover .exp-period {
+      color: var(--accent);
+      transform: translateX(6px);
+    }
+    .exp-entry:hover .exp-title {
+      color: var(--accent);
     }
 
     /* Featured project — same hover treatment as Experience/Education */
@@ -337,14 +333,12 @@
     .proj-title {
       transition: color 0.35s ease;
     }
-    @media (min-width: 768px) {
-      .proj-entry:hover .proj-period {
-        color: var(--accent);
-        transform: translateX(6px);
-      }
-      .proj-entry:hover .proj-title {
-        color: var(--accent);
-      }
+    .proj-entry:hover .proj-period {
+      color: var(--accent);
+      transform: translateX(6px);
+    }
+    .proj-entry:hover .proj-title {
+      color: var(--accent);
     }
 
     /* Other projects list — title slides + turns amber on hover */
@@ -676,7 +670,7 @@
           role:    "Application Specialist II, Trial Interactive",
           org:     "TransPerfect",
           orgUrl:  "https://www.trialinteractive.com/",
-          tagline: "Clinical trial software for life sciences (eTMF, CTMS, QDMS, Global Learn)",
+          tagline: "Clinical trial software for life sciences",
           period:  "Sep 2025 — Present",
           points: [
             "Support enterprise life sciences applications including eTMF, CTMS, QDMS, and Global Learn by resolving complex technical issues, configuring workflows, and improving client operations.",
@@ -688,7 +682,7 @@
           role:    "Information Security Analyst Intern",
           org:     "Madison Square Garden Entertainment",
           orgUrl:  "https://www.msgentertainment.com/",
-          tagline: "One of the world's most iconic live entertainment & sports venues",
+          tagline: "World's most iconic live entertainment and sports venues",
           period:  "May 2024 — Aug 2024",
           points: [
             "Analyzed security logs and user activity data to identify high-risk activity and strengthen cybersecurity operations using Microsoft Azure, Defender, and SentinelOne.",
@@ -1108,7 +1102,7 @@
                     </div>
                     <div className="md:col-span-9 space-y-4">
                       <div>
-                        <h4 className="font-display text-xl text-ink edu-title">{e.degree}</h4>
+                        <h3 className="font-display text-xl text-ink edu-title">{e.degree}</h3>
                         <p className="text-muted mt-1">{e.school}</p>
                         {e.gpa && <p className="font-mono text-xs text-muted mt-1">{e.gpa}</p>}
                         {e.minor && (
@@ -1143,7 +1137,7 @@
                       {e.coursework && (
                         <div>
                           <p className="font-mono text-[10px] text-muted tracking-widest uppercase">Relevant Coursework</p>
-                          <p className="mt-1 text-base text-ink/80 leading-relaxed">{e.coursework}</p>
+                          <p className="mt-1 text-[15px] text-ink/80 leading-relaxed">{e.coursework}</p>
                         </div>
                       )}
                     </div>
@@ -1175,13 +1169,15 @@
               <p className="mt-6 text-ink/80 leading-relaxed reveal-on-scroll">
                 The fastest way to reach me is by email. I usually reply within a day.
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 reveal-on-scroll">
+              <div className="mt-10 flex flex-col items-start sm:flex-row sm:flex-wrap sm:items-center gap-y-4 sm:gap-x-6 sm:gap-y-3 reveal-on-scroll">
                 <button onClick={copyEmail} className="font-mono text-sm border border-ink rounded-full px-5 py-2 hover:bg-ink hover:text-paper transition">
                   {copied ? "Copied to clipboard" : DATA.email}
                 </button>
-                <a href={`mailto:${DATA.email}`} className="underline-link text-sm">Send email →</a>
-                <a href={DATA.linkedin} target="_blank" rel="noreferrer" className="underline-link text-sm">LinkedIn →</a>
-                <a href={DATA.github} target="_blank" rel="noreferrer" className="underline-link text-sm">GitHub →</a>
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <a href={`mailto:${DATA.email}`} className="underline-link text-sm">Send email →</a>
+                  <a href={DATA.linkedin} target="_blank" rel="noreferrer" className="underline-link text-sm">LinkedIn →</a>
+                  <a href={DATA.github} target="_blank" rel="noreferrer" className="underline-link text-sm">GitHub →</a>
+                </div>
               </div>
             </div>
           </Container>
