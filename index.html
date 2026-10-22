@@ -194,6 +194,7 @@
       opacity: 1;
       transform: translateX(0);
     }
+
     .btn-icon {
       display: inline-flex;
       align-items: center;
@@ -206,6 +207,10 @@
       width: 100%;
       height: 100%;
       display: block;
+    }
+    .btn-icon.pdf {
+      width: 16px;
+      height: 18px;
     }
     .btn-fill:hover .btn-icon {
       transform: translateX(-4px);
@@ -519,7 +524,7 @@
 
       // "About" paragraphs (each entry becomes one paragraph)
       bio: [
-        `A student of life and Fordham University graduate, I bring curiosity, academic knowledge, and hands-on experience to my work in enterprise applications, data analytics, and cybersecurity. I currently work as a Technical Application Specialist at Trial Interactive, part of TransPerfect Life Sciences, where I provide technical solutions for cloud-based e-Clinical applications, diagnose application-level issues, and configure workflows for global life sciences clients.`,
+        `A student of life and Fordham University graduate, I bring curiosity, academic knowledge, and hands-on experience to my work in enterprise applications, data analytics, and cybersecurity. I currently work as a Technical Application Specialist at Trial Interactive, part of TransPerfect Life Sciences, where I provide technical solutions for cloud based e-Clinical applications, diagnose application-level issues, and configure workflows for global life sciences clients.`,
         `I enjoy analyzing complex data, learning and applying machine learning, and building interactive dashboards that transform data into meaningful insights. In my free time, I enjoy hiking, lifting weights, playing outdoor games, and photography.`,
       ],
 
@@ -735,7 +740,7 @@
           org:     "Fordham University",
           orgUrl:  "https://www.fordham.edu/",
           tagline: "Private Jesuit University in New York City",
-          period:  "Jan 2022 — Dec 2024",
+          period:  "Jan 2022 — May 2025",
           points: [
             "Provided technical and ServiceNow support for students, faculty, and staff, resolving IT and security-related issues to ensure smooth academic operations.",
             "Improved user experience by troubleshooting technical issues efficiently and reducing phone wait times through effective support and user guidance.",
@@ -810,8 +815,8 @@
                 </a>
               ))}
             </nav>
-            <a href={DATA.resumeUrl} target="_blank" rel="noreferrer" className="hidden md:inline-block text-sm border border-ink rounded-full px-4 py-1.5 hover:bg-ink hover:text-paper transition">
-              Résumé
+            <a href="#contact" className="hidden md:inline-block text-sm border border-ink rounded-full px-4 py-1.5 hover:bg-ink hover:text-paper transition">
+              Get in touch
             </a>
             <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="menu">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -827,7 +832,7 @@
                     {l.label}
                   </a>
                 ))}
-                <a href={DATA.resumeUrl} className="mt-2 inline-block w-fit border border-ink rounded-full px-4 py-1.5">Résumé</a>
+                <a href="#contact" className="mt-2 inline-block w-fit border border-ink rounded-full px-4 py-1.5">Get in touch</a>
               </Container>
             </div>
           )}
@@ -862,8 +867,8 @@
               <a href="#projects" className="btn-fill px-6 py-3 rounded-full border border-ink text-sm font-medium text-ink">
                 <span className="btn-label">Projects</span><span className="btn-arrow">→</span>
               </a>
-              <a href="#contact" className="btn-fill px-6 py-3 rounded-full border border-ink text-sm font-medium text-ink">
-                <span className="btn-label">Get in touch</span><span className="btn-arrow">→</span>
+              <a href={DATA.resumeUrl} target="_blank" rel="noreferrer" className="btn-fill px-6 py-3 rounded-full border border-ink text-sm font-medium text-ink">
+                <span className="btn-label">Résumé</span><span className="btn-arrow">→</span>
               </a>
             </div>
 
@@ -970,6 +975,12 @@
                       )}
                       {p.report && (
                         <a href={p.report} target="_blank" rel="noreferrer" className="btn-fill px-4 py-1.5 rounded-full border border-ink text-xs font-medium text-ink">
+                          <span className="btn-icon pdf" aria-hidden="true">
+                            <svg viewBox="0 0 24 28" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M15 1H4a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7-7zm-1 7V2.5L19.5 8H14z" fill="currentColor"/>
+                              <text x="12" y="22" fontFamily="Arial Black, Arial, sans-serif" fontSize="7" fontWeight="900" fill="var(--paper)" textAnchor="middle" letterSpacing="-0.3">PDF</text>
+                            </svg>
+                          </span>
                           <span className="btn-label">Technical Report</span><span className="btn-arrow">→</span>
                         </a>
                       )}
@@ -1039,6 +1050,12 @@
                   )}
                   {openProject.report && (
                     <a href={openProject.report} target="_blank" rel="noreferrer" className="btn-fill px-4 py-1.5 rounded-full border border-ink text-xs font-medium text-ink">
+                      <span className="btn-icon pdf" aria-hidden="true">
+                        <svg viewBox="0 0 24 28" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M15 1H4a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7-7zm-1 7V2.5L19.5 8H14z" fill="currentColor"/>
+                          <text x="12" y="22" fontFamily="Arial Black, Arial, sans-serif" fontSize="7" fontWeight="900" fill="var(--paper)" textAnchor="middle" letterSpacing="-0.3">PDF</text>
+                        </svg>
+                      </span>
                       <span className="btn-label">Technical Report</span><span className="btn-arrow">→</span>
                     </a>
                   )}
