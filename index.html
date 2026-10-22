@@ -195,6 +195,68 @@
       transform: translateX(0);
     }
 
+    /* Typing-cursor message below hero */
+    .type-message {
+      display: inline-flex;
+      align-items: baseline;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+    .type-message .type-arrow {
+      color: var(--accent);
+      margin-right: 6px;
+      font-weight: 600;
+    }
+    .type-text {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      vertical-align: bottom;
+      width: 0;
+      animation: typeIn 2.2s steps(22, end) 0.6s forwards;
+    }
+    @keyframes typeIn {
+      to { width: 22ch; }
+    }
+    .type-message .type-cursor {
+      margin-left: 2px;
+      background: var(--accent);
+      width: 0.07em;
+      height: 1em;
+      animation: blink 1.05s steps(2) infinite;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Pulsing dot on navbar "Get in touch" */
+    .pulse-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .pulse-dot::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.75;
+      animation: pulseDot 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulseDot {
+      0%   { transform: scale(1);   opacity: 0.75; }
+      70%  { transform: scale(2.4); opacity: 0; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
     .btn-icon {
       display: inline-flex;
       align-items: center;
@@ -815,7 +877,8 @@
                 </a>
               ))}
             </nav>
-            <a href="#contact" className="hidden md:inline-block text-sm border border-ink rounded-full px-4 py-1.5 hover:bg-ink hover:text-paper transition">
+            <a href="#contact" className="hidden md:inline-flex items-center text-sm border border-ink rounded-full px-4 py-1.5 hover:bg-ink hover:text-paper transition">
+              <span className="pulse-dot" aria-hidden="true"></span>
               Get in touch
             </a>
             <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="menu">
@@ -832,7 +895,7 @@
                     {l.label}
                   </a>
                 ))}
-                <a href="#contact" className="mt-2 inline-block w-fit border border-ink rounded-full px-4 py-1.5">Get in touch</a>
+                <a href="#contact" className="mt-2 inline-flex items-center w-fit border border-ink rounded-full px-4 py-1.5"><span className="pulse-dot" aria-hidden="true"></span>Get in touch</a>
               </Container>
             </div>
           )}
@@ -869,6 +932,12 @@
               </a>
               <a href={DATA.resumeUrl} target="_blank" rel="noreferrer" className="btn-fill px-6 py-3 rounded-full border border-ink text-sm font-medium text-ink">
                 <span className="btn-label">Résumé</span><span className="btn-arrow">→</span>
+              </a>
+            </div>
+            <div className="mt-5 fade-up hidden md:block">
+              <a href="#contact" className="type-message hover:text-ink transition-colors">
+                <span className="type-arrow">↗</span>
+                <span className="type-text">Let's work together</span>
               </a>
             </div>
 
