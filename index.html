@@ -195,7 +195,40 @@
       transform: translateX(0);
     }
 
-.btn-icon {
+    /* Mobile menu cursor-click icon */
+    .cursor-click {
+      position: relative;
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+    }
+    .cursor-click svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+    .cursor-click::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      opacity: 0;
+      animation: clickPulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      z-index: 1;
+    }
+    @keyframes clickPulse {
+      0%   { transform: scale(0.3); opacity: 0.9; }
+      70%  { transform: scale(1.8); opacity: 0; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .btn-icon {
       display: inline-flex;
       align-items: center;
       width: 14px;
@@ -531,7 +564,7 @@
       // Quick stats shown under hero
       stats: [
         { value: "10+",    label: "Projects built" },
-        { value: "4+ yrs", label: "Work experience" },
+        { value: "4+ years", label: "Work experience" },
         { value: "M.Sc.",  label: "Data Science" },
         { value: "B.Sc.",  label: "Computer Science" },
       ],
@@ -819,9 +852,17 @@
               {DATA.shortName}.
             </span>
             <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="menu">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 17h16" />}
-              </svg>
+              {open ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M6 6l12 12M6 18L18 6" />
+                </svg>
+              ) : (
+                <span className="cursor-click">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.5 3.21v15.65l3.86-3.86h5.62L5.5 3.21z" fill="currentColor" stroke="var(--paper)" strokeWidth="0.8" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              )}
             </button>
           </Container>
           {open && (
